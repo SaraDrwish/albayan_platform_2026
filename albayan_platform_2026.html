@@ -1,0 +1,1376 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--primary:#efb710;--primary-dark:#c9960d;--primary-light:#fdf3cc;
+--teal:#11abb1;--teal-dark:#0d8a8f;--teal-light:#e0f7f7;
+--slate:#878a99;--slate-dark:#5c5f6e;--slate-light:#f0f1f4;
+--bg:#f8f9fb;--white:#ffffff;--text:#1a1d2e;--text2:#5c5f6e;
+--border:#e2e4ea;--shadow:0 2px 12px rgba(0,0,0,0.08);
+--radius:12px;--radius-sm:8px;
+}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;direction:rtl}
+.hidden{display:none!important}
+
+/* ========= LANDING PAGE ========= */
+#landing{min-height:100vh;background:linear-gradient(135deg,#0d1b2a 0%,#1a3a4a 50%,#0d2b30 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.land-bg{position:absolute;inset:0;overflow:hidden}
+.land-circle{position:absolute;border-radius:50%;opacity:0.08}
+.lc1{width:600px;height:600px;background:var(--primary);top:-200px;right:-150px}
+.lc2{width:400px;height:400px;background:var(--teal);bottom:-100px;left:-100px}
+.lc3{width:250px;height:250px;background:var(--primary);bottom:100px;right:100px;opacity:0.05}
+.land-content{position:relative;z-index:2;text-align:center;padding:2rem}
+.land-logo{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:2.5rem}
+.land-logo-icon{width:72px;height:72px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:32px;font-family:'Amiri',serif;font-weight:700;color:#fff;box-shadow:0 8px 24px rgba(239,183,16,0.4)}
+.land-logo h1{font-family:'Amiri',serif;font-size:3rem;font-weight:700;color:#fff;letter-spacing:2px}
+.land-logo span{display:block;font-size:1rem;color:rgba(255,255,255,0.6);font-family:'Cairo',sans-serif;font-weight:300;letter-spacing:4px;margin-top:4px}
+.land-tagline{font-size:1.2rem;color:rgba(255,255,255,0.7);margin-bottom:3rem;font-weight:300;line-height:1.8}
+.land-tagline strong{color:var(--primary);font-weight:600}
+.land-features{display:flex;gap:2rem;justify-content:center;margin-bottom:3rem;flex-wrap:wrap}
+.land-feat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.5rem 2rem;text-align:center;color:rgba(255,255,255,0.8);backdrop-filter:blur(10px)}
+.land-feat .fi{font-size:2rem;margin-bottom:0.5rem;display:block}
+.land-feat p{font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:4px}
+.btn-land{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;padding:1rem 3rem;border-radius:50px;font-size:1.1rem;font-family:'Cairo',sans-serif;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 8px 24px rgba(239,183,16,0.4);letter-spacing:1px}
+.btn-land:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(239,183,16,0.5)}
+.land-note{margin-top:1.5rem;color:rgba(255,255,255,0.3);font-size:0.8rem}
+
+/* ========= LOGIN PAGE ========= */
+#loginPage{min-height:100vh;background:linear-gradient(135deg,#0d1b2a 0%,#1a3a4a 50%,#0d2b30 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.login-box{background:var(--white);border-radius:24px;padding:3rem;width:420px;max-width:95vw;position:relative;z-index:2;box-shadow:0 24px 60px rgba(0,0,0,0.3)}
+.login-header{text-align:center;margin-bottom:2.5rem}
+.login-logo{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:24px;font-weight:700;color:#fff;margin:0 auto 1rem}
+.login-header h2{font-family:'Amiri',serif;font-size:1.8rem;color:var(--text);margin-bottom:4px}
+.login-header p{color:var(--text2);font-size:0.9rem}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-size:0.85rem;font-weight:600;color:var(--text2);margin-bottom:6px}
+.form-group input{width:100%;padding:0.85rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;font-size:0.95rem;color:var(--text);transition:border-color 0.2s;background:var(--bg);direction:ltr;text-align:right}
+.form-group input:focus{outline:none;border-color:var(--teal);background:#fff}
+.btn-login{width:100%;padding:0.9rem;background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;border:none;border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.2s;margin-top:0.5rem}
+.btn-login:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(17,171,177,0.4)}
+.login-error{background:#fff0f0;color:#c0392b;padding:0.75rem 1rem;border-radius:var(--radius-sm);font-size:0.85rem;margin-bottom:1rem;border:1px solid #fecaca;display:none}
+.back-btn{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.5);background:none;border:none;font-family:'Cairo',sans-serif;font-size:0.9rem;cursor:pointer;position:absolute;top:2rem;right:2rem;z-index:3;transition:color 0.2s}
+.back-btn:hover{color:#fff}
+
+/* ========= MAIN APP ========= */
+#app{display:flex;min-height:100vh}
+.sidebar{width:260px;background:linear-gradient(180deg,#0d1b2a 0%,#1a2f3a 100%);color:#fff;flex-shrink:0;display:flex;flex-direction:column;position:fixed;height:100vh;overflow-y:auto;z-index:100}
+.sidebar-logo{padding:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.sidebar-logo-inner{display:flex;align-items:center;gap:12px}
+.s-logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:18px;font-weight:700;color:#fff;flex-shrink:0}
+.s-logo-text h3{font-family:'Amiri',serif;font-size:1.2rem;font-weight:700;color:#fff}
+.s-logo-text span{font-size:0.7rem;color:rgba(255,255,255,0.4);display:block;letter-spacing:2px}
+.sidebar-user{padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.user-pill{display:flex;align-items:center;gap:10px}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0}
+.user-info .name{font-size:0.9rem;font-weight:600;color:#fff}
+.user-info .role-badge{font-size:0.7rem;padding:2px 8px;border-radius:20px;display:inline-block;margin-top:2px}
+.rb-admin{background:rgba(239,183,16,0.2);color:var(--primary)}
+.rb-teacher{background:rgba(17,171,177,0.2);color:#4ecbcf}
+.rb-student{background:rgba(135,138,153,0.2);color:#c0c2cc}
+.sidebar-nav{flex:1;padding:1rem 0}
+.nav-section{margin-bottom:0.5rem}
+.nav-section-title{font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:2px;padding:0.5rem 1.5rem;text-transform:uppercase}
+.nav-item{display:flex;align-items:center;gap:10px;padding:0.7rem 1.5rem;cursor:pointer;transition:all 0.2s;font-size:0.9rem;color:rgba(255,255,255,0.6);border-right:3px solid transparent}
+.nav-item:hover{background:rgba(255,255,255,0.05);color:#fff;border-right-color:rgba(255,255,255,0.2)}
+.nav-item.active{background:rgba(239,183,16,0.1);color:var(--primary);border-right-color:var(--primary)}
+.nav-item .ni{font-size:1rem;width:20px;text-align:center}
+.sidebar-footer{padding:1rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08)}
+.logout-btn{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.4);background:none;border:none;font-family:'Cairo',sans-serif;font-size:0.85rem;cursor:pointer;transition:color 0.2s;width:100%;padding:0.5rem 0}
+.logout-btn:hover{color:#ff6b6b}
+
+/* ========= CONTENT AREA ========= */
+.main-content{margin-right:260px;flex:1;padding:2rem;min-height:100vh}
+.page-header{margin-bottom:2rem}
+.page-header h1{font-family:'Amiri',serif;font-size:2rem;color:var(--text);margin-bottom:4px}
+.page-header p{color:var(--text2);font-size:0.9rem}
+.breadcrumb{font-size:0.8rem;color:var(--text2);margin-bottom:0.5rem}
+.breadcrumb span{color:var(--teal)}
+
+/* CARDS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.stat-card{background:var(--white);border-radius:var(--radius);padding:1.25rem;border:1px solid var(--border);position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;right:0;width:4px;height:100%;border-radius:0 var(--radius) var(--radius) 0}
+.sc-gold::before{background:var(--primary)}
+.sc-teal::before{background:var(--teal)}
+.sc-slate::before{background:var(--slate)}
+.sc-green::before{background:#27ae60}
+.stat-card .sc-label{font-size:0.8rem;color:var(--text2);margin-bottom:4px}
+.stat-card .sc-val{font-size:2rem;font-weight:700;color:var(--text);font-family:'Cairo',sans-serif}
+.stat-card .sc-icon{position:absolute;top:1rem;left:1rem;font-size:1.5rem;opacity:0.15}
+
+/* TABLES */
+.table-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;margin-bottom:1.5rem}
+.table-card-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.table-card-header h3{font-size:1rem;font-weight:600;color:var(--text)}
+.t-table{width:100%;border-collapse:collapse}
+.t-table th{background:var(--slate-light);padding:0.75rem 1rem;font-size:0.8rem;font-weight:600;color:var(--text2);text-align:right;border-bottom:1px solid var(--border)}
+.t-table td{padding:0.85rem 1rem;font-size:0.875rem;color:var(--text);border-bottom:1px solid var(--border)}
+.t-table tr:last-child td{border-bottom:none}
+.t-table tr:hover td{background:var(--bg)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600}
+.b-admin{background:rgba(239,183,16,0.15);color:#9a6e00}
+.b-teacher{background:rgba(17,171,177,0.15);color:var(--teal-dark)}
+.b-student{background:rgba(135,138,153,0.15);color:var(--slate-dark)}
+.b-active{background:rgba(39,174,96,0.15);color:#1a8040}
+.b-inactive{background:rgba(231,76,60,0.15);color:#c0392b}
+
+/* BUTTONS */
+.btn{padding:0.6rem 1.2rem;border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;font-size:0.875rem;font-weight:600;cursor:pointer;transition:all 0.2s;border:none;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.btn-gold{background:var(--primary);color:#fff}
+.btn-gold:hover{background:var(--primary-dark)}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
+.btn-ghost:hover{background:var(--bg);color:var(--text)}
+.btn-danger{background:#e74c3c;color:#fff}
+.btn-danger:hover{background:#c0392b}
+.btn-sm{padding:0.4rem 0.8rem;font-size:0.8rem}
+.btn-group{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center}
+
+/* FORMS */
+.form-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem}
+.form-card h3{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-row.three{grid-template-columns:1fr 1fr 1fr}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:0.82rem;font-weight:600;color:var(--text2);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:0.7rem 0.9rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;font-size:0.875rem;color:var(--text);background:var(--bg);transition:border-color 0.2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--teal);background:#fff}
+.fg textarea{resize:vertical;min-height:80px}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal{background:var(--white);border-radius:var(--radius);padding:2rem;width:560px;max-width:95vw;max-height:90vh;overflow-y:auto;position:relative}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.modal-header h2{font-size:1.2rem;font-weight:700;color:var(--text)}
+.modal-close{background:none;border:none;font-size:1.5rem;color:var(--text2);cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+.modal-close:hover{background:var(--bg);color:var(--text)}
+
+/* SCHEDULE */
+.schedule-grid{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:auto}
+.sch-table{width:100%;border-collapse:collapse;min-width:700px}
+.sch-table th{background:linear-gradient(135deg,#0d1b2a,#1a3a4a);color:#fff;padding:0.75rem 0.5rem;font-size:0.8rem;font-weight:600;text-align:center;min-width:110px}
+.sch-table th:first-child{background:var(--primary);color:#fff;width:100px}
+.sch-table td{padding:0.5rem;border:1px solid var(--border);text-align:center;font-size:0.75rem;vertical-align:top;min-height:60px}
+.sch-cell{border-radius:8px;padding:6px 8px;cursor:pointer;transition:all 0.2s;min-height:56px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px}
+.sch-cell:hover{transform:scale(1.02)}
+.sch-cell .subj{font-weight:700;font-size:0.8rem}
+.sch-cell .teacher{font-size:0.68rem;opacity:0.8}
+.sch-empty{border:1.5px dashed var(--border);border-radius:8px;min-height:56px;display:flex;align-items:center;justify-content:center;color:var(--border);font-size:1.2rem;cursor:pointer;transition:all 0.2s}
+.sch-empty:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-light)}
+.sch-time{font-size:0.7rem;color:var(--text2);font-weight:600;padding:0.5rem}
+.sch-break{background:linear-gradient(135deg,var(--primary-light),#fff3cc);border-radius:8px;padding:6px;font-size:0.7rem;font-weight:600;color:var(--primary-dark);text-align:center}
+
+/* SUBJECT COLORS */
+.s-math{background:linear-gradient(135deg,#e8f4fd,#d1eaf8);color:#1565c0}
+.s-arabic{background:linear-gradient(135deg,#fdecea,#fbd9d7);color:#b71c1c}
+.s-science{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);color:#1b5e20}
+.s-social{background:linear-gradient(135deg,#fff8e1,#ffecb3);color:#e65100}
+.s-religion{background:linear-gradient(135deg,#f3e5f5,#e1bee7);color:#4a148c}
+.s-english{background:linear-gradient(135deg,#e0f2f1,#b2dfdb);color:#004d40}
+.s-english2{background:linear-gradient(135deg,#e8eaf6,#c5cae9);color:#1a237e}
+.s-computer{background:linear-gradient(135deg,#fce4ec,#f8bbd0);color:#880e4f}
+.s-art{background:linear-gradient(135deg,#fff3e0,#ffe0b2);color:#bf360c}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:1.5rem}
+.tab{padding:0.75rem 1.5rem;cursor:pointer;font-size:0.9rem;font-weight:600;color:var(--text2);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+.tab.active{color:var(--teal);border-bottom-color:var(--teal)}
+.tab:hover:not(.active){color:var(--text)}
+
+/* ALERT */
+.alert{padding:0.85rem 1rem;border-radius:var(--radius-sm);font-size:0.875rem;margin-bottom:1rem}
+.alert-success{background:#eafaf1;border:1px solid #a9dfbf;color:#1a8040}
+.alert-error{background:#fdedec;border:1px solid #f5b7b1;color:#c0392b}
+.alert-info{background:var(--teal-light);border:1px solid rgba(17,171,177,0.3);color:var(--teal-dark)}
+
+/* CONTENT CARDS */
+.content-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;margin-bottom:1.5rem}
+.content-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;transition:box-shadow 0.2s}
+.content-card:hover{box-shadow:var(--shadow)}
+.cc-header{padding:1rem;display:flex;align-items:center;gap:10px}
+.cc-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.cc-icon-pdf{background:#fdecea;color:#c0392b}
+.cc-icon-video{background:#e8f4fd;color:#1565c0}
+.cc-icon-doc{background:#e8f5e9;color:#1b5e20}
+.cc-icon-exam{background:#fff8e1;color:#e65100}
+.cc-title{font-size:0.9rem;font-weight:600;color:var(--text);line-height:1.3}
+.cc-meta{font-size:0.75rem;color:var(--text2);margin-top:2px}
+.cc-footer{padding:0.75rem 1rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg)}
+
+/* EXAM */
+.exam-card{background:var(--white);border-radius:var(--radius);border:2px solid var(--border);padding:1.5rem;margin-bottom:1rem;transition:all 0.2s}
+.exam-card.active-exam{border-color:var(--teal);background:var(--teal-light)}
+.exam-card.expired-exam{border-color:var(--border);opacity:0.6}
+.exam-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.exam-info{display:flex;gap:1.5rem;font-size:0.8rem;color:var(--text2);flex-wrap:wrap}
+.exam-info-item{display:flex;align-items:center;gap:4px}
+
+/* CLASSES */
+.class-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;transition:box-shadow 0.2s;cursor:pointer}
+.class-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.class-card-top{height:80px;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:1.4rem;font-weight:700;color:#fff}
+.class-card-body{padding:1rem}
+.class-card-body h4{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.class-card-body p{font-size:0.8rem;color:var(--text2)}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#1a1d2e;color:#fff;padding:0.75rem 1.5rem;border-radius:50px;font-size:0.875rem;z-index:9999;transition:all 0.3s;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.sidebar{transform:translateX(100%);transition:transform 0.3s}.sidebar.open{transform:translateX(0)}
+.main-content{margin-right:0}
+.stats-grid{grid-template-columns:1fr 1fr}
+.form-row{grid-template-columns:1fr}
+}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.72rem;font-weight:600;background:var(--teal-light);color:var(--teal-dark);margin:2px}
+.search-bar{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem}
+.search-bar input{flex:1;padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;font-size:0.875rem;background:var(--white)}
+.search-bar input:focus{outline:none;border-color:var(--teal)}
+.empty-state{text-align:center;padding:3rem;color:var(--text2)}
+.empty-state .es-icon{font-size:3rem;margin-bottom:1rem;opacity:0.4}
+.empty-state p{font-size:0.9rem}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;background:var(--bg);border:1px solid var(--border);color:var(--text2)}
+.section-divider{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
+.info-row{display:flex;align-items:center;gap:8px;font-size:0.875rem;color:var(--text2);padding:0.4rem 0}
+.info-row strong{color:var(--text);min-width:120px}
+</style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="landing">
+  <div class="land-bg">
+    <div class="land-circle lc1"></div>
+    <div class="land-circle lc2"></div>
+    <div class="land-circle lc3"></div>
+  </div>
+  <div class="land-content">
+    <div class="land-logo">
+      <div class="land-logo-icon">ب</div>
+      <div>
+        <h1>منصة البيان</h1>
+        <span>AL-BAYAN PLATFORM</span>
+      </div>
+    </div>
+    <p class="land-tagline">
+      منصتك التعليمية المتكاملة لإدارة <strong>الفصول والمواد والجداول</strong><br>
+      من الحضانة حتى الصف الأول الثانوي
+    </p>
+    <div class="land-features">
+      <div class="land-feat">
+        <span class="fi">📅</span>
+        <strong>جدول ذكي</strong>
+        <p>إدارة الحصص والمواد</p>
+      </div>
+      <div class="land-feat">
+        <span class="fi">📚</span>
+        <strong>محتوى تعليمي</strong>
+        <p>ملفات وفيديوهات</p>
+      </div>
+      <div class="land-feat">
+        <span class="fi">✏️</span>
+        <strong>امتحانات إلكترونية</strong>
+        <p>مع ضبط الوقت</p>
+      </div>
+      <div class="land-feat">
+        <span class="fi">👥</span>
+        <strong>إدارة متكاملة</strong>
+        <p>أدمن / مدرس / طالب</p>
+      </div>
+    </div>
+    <button class="btn-land" onclick="showLogin()">🔐 دخول المنصة</button>
+    <p class="land-note">للمستخدمين المسجلين فقط</p>
+  </div>
+</div>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="hidden">
+  <button class="back-btn" onclick="showLanding()">← رجوع</button>
+  <div class="lc1 land-circle" style="position:absolute"></div>
+  <div class="lc2 land-circle" style="position:absolute"></div>
+  <div class="login-box">
+    <div class="login-header">
+      <div class="login-logo">ب</div>
+      <h2>تسجيل الدخول</h2>
+      <p>منصة البيان التعليمية</p>
+    </div>
+    <div class="login-error" id="loginError">اسم المستخدم أو كلمة المرور غير صحيحة</div>
+    <div class="form-group">
+      <label>اسم المستخدم</label>
+      <input type="text" id="loginUser" placeholder="أدخل اسم المستخدم" value="admin">
+    </div>
+    <div class="form-group">
+      <label>كلمة المرور</label>
+      <input type="password" id="loginPass" placeholder="أدخل كلمة المرور" value="admin123" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="btn-login" onclick="doLogin()">دخول</button>
+    <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text2);text-align:center">
+      <strong>حسابات تجريبية:</strong><br>
+      أدمن: admin / admin123 &nbsp;|&nbsp; مدرس: teacher1 / pass123 &nbsp;|&nbsp; طالب: student1 / pass123
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="hidden">
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-inner">
+        <div class="s-logo-icon">ب</div>
+        <div class="s-logo-text">
+          <h3>منصة البيان</h3>
+          <span>AL-BAYAN</span>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-pill">
+        <div class="user-avatar" id="sidebarAvatar">أ</div>
+        <div class="user-info">
+          <div class="name" id="sidebarName">المدير</div>
+          <span class="role-badge rb-admin" id="sidebarRole">أدمن</span>
+        </div>
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebarNav"></nav>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="doLogout()">🚪 تسجيل الخروج</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content" id="mainContent">
+    <!-- content injected by JS -->
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay hidden" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h2 id="modalTitle">عنوان</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast hidden" id="toast"></div>
+
+<script>
+// ===================== STATE =====================
+const SUBJECTS = ['رياضيات','لغة عربية','علوم','دراسات','تربية دينية','لغة إنجليزية','إنجليزي متقدم','كمبيوتر','تربية فنية'];
+const SUBJECT_KEYS = ['math','arabic','science','social','religion','english','english2','computer','art'];
+const SUBJECT_CLASSES = {math:'s-math',arabic:'s-arabic',science:'s-science',social:'s-social',religion:'s-religion',english:'s-english',english2:'s-english2',computer:'s-computer',art:'s-art'};
+const DAYS = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس'];
+const GRADES = ['KG1','KG2','أول ابتدائي','ثاني ابتدائي','ثالث ابتدائي','رابع ابتدائي','خامس ابتدائي','سادس ابتدائي','أول إعدادي','ثاني إعدادي','ثالث إعدادي','أول ثانوي'];
+// Time slots: 7:00 - 13:00, 45min each, break after period 3
+const PERIODS = [
+  {n:1,start:'7:00',end:'7:45'},
+  {n:2,start:'7:45',end:'8:30'},
+  {n:3,start:'8:30',end:'9:15'},
+  {n:'استراحة',start:'9:15',end:'9:30',isBreak:true},
+  {n:4,start:'9:30',end:'10:15'},
+  {n:5,start:'10:15',end:'11:00'},
+  {n:6,start:'11:00',end:'11:45'},
+  {n:7,start:'11:45',end:'12:30'},
+  {n:8,start:'12:30',end:'13:00'}
+];
+
+let state = {
+  users: [
+    {id:'u1',username:'admin',password:'admin123',name:'أ. محمد رضا',role:'admin',active:true},
+    {id:'u2',username:'teacher1',password:'pass123',name:'أ. سارة أحمد',role:'teacher',subjects:['arabic','religion'],classes:['أول ابتدائي','ثاني ابتدائي'],active:true},
+    {id:'u3',username:'teacher2',password:'pass123',name:'أ. كريم علي',role:'teacher',subjects:['math','science'],classes:['ثالث ابتدائي','رابع ابتدائي'],active:true},
+    {id:'u4',username:'student1',password:'pass123',name:'أحمد خالد',role:'student',grade:'أول ابتدائي',active:true},
+    {id:'u5',username:'student2',password:'pass123',name:'نور محمد',role:'student',grade:'ثاني ابتدائي',active:true},
+  ],
+  classes: GRADES.map((g,i)=>({id:'c'+i,name:g,subjects:SUBJECT_KEYS.slice(0,6),studentCount:i<2?8:20})),
+  schedule: {}, // classId -> {day -> {period -> {subject,teacherId}}}
+  content: [], // {id,type,title,classId,subject,teacherId,date,desc,fileType,url}
+  exams: [], // {id,title,classId,subject,teacherId,startTime,duration,attempts,questions:[]}
+  currentUser: null,
+  currentPage: 'dashboard',
+  currentClass: null,
+  currentSubject: null,
+};
+
+// seed some schedule data
+function seedSchedule(){
+  const cls = state.classes[2]; // أول ابتدائي
+  if(!state.schedule[cls.id]) state.schedule[cls.id]={};
+  const subjs=[['math','u3'],['arabic','u2'],['science','u3'],['english','u2'],['religion','u2'],['art',null]];
+  DAYS.forEach((d,di)=>{
+    if(!state.schedule[cls.id][d]) state.schedule[cls.id][d]={};
+    let si=0;
+    PERIODS.filter(p=>!p.isBreak).forEach((p,pi)=>{
+      if(pi<subjs.length){
+        state.schedule[cls.id][d][p.n]={subject:subjs[(di*2+pi+si)%subjs.length][0],teacherId:subjs[(di*2+pi+si)%subjs.length][1]};
+      }
+      si++;
+    });
+  });
+}
+seedSchedule();
+
+let currentUser=null;
+let currentPage='dashboard';
+
+// ===================== AUTH =====================
+function showLogin(){document.getElementById('landing').classList.add('hidden');document.getElementById('loginPage').classList.remove('hidden')}
+function showLanding(){document.getElementById('loginPage').classList.add('hidden');document.getElementById('landing').classList.remove('hidden')}
+function doLogin(){
+  const u=document.getElementById('loginUser').value.trim();
+  const p=document.getElementById('loginPass').value.trim();
+  const user=state.users.find(x=>x.username===u&&x.password===p&&x.active);
+  if(!user){document.getElementById('loginError').style.display='block';return;}
+  document.getElementById('loginError').style.display='none';
+  currentUser=user;
+  document.getElementById('loginPage').classList.add('hidden');
+  document.getElementById('app').classList.remove('hidden');
+  initApp();
+}
+function doLogout(){
+  currentUser=null;currentPage='dashboard';
+  document.getElementById('app').classList.add('hidden');
+  document.getElementById('landing').classList.remove('hidden');
+}
+
+// ===================== INIT APP =====================
+function initApp(){
+  // sidebar user
+  document.getElementById('sidebarName').textContent=currentUser.name;
+  document.getElementById('sidebarAvatar').textContent=currentUser.name[0];
+  const rb=document.getElementById('sidebarRole');
+  rb.className='role-badge '+(currentUser.role==='admin'?'rb-admin':currentUser.role==='teacher'?'rb-teacher':'rb-student');
+  rb.textContent=currentUser.role==='admin'?'أدمن':currentUser.role==='teacher'?'مدرس':'طالب';
+  buildNav();
+  navigate('dashboard');
+}
+
+function buildNav(){
+  const nav=document.getElementById('sidebarNav');
+  const r=currentUser.role;
+  let items=[];
+  items.push({section:'الرئيسية',items:[{id:'dashboard',icon:'🏠',label:'لوحة التحكم'}]});
+  if(r==='admin'||r==='teacher'){
+    items.push({section:'التعليم',items:[
+      {id:'classes',icon:'🏫',label:'الفصول'},
+      {id:'schedule',icon:'📅',label:'الجدول الدراسي'},
+      {id:'content',icon:'📚',label:'المحتوى التعليمي'},
+      {id:'exams',icon:'✏️',label:'الامتحانات'},
+    ]});
+  }
+  if(r==='student'){
+    items.push({section:'التعلم',items:[
+      {id:'my_schedule',icon:'📅',label:'جدولي الدراسي'},
+      {id:'my_content',icon:'📚',label:'المحتوى والمواد'},
+      {id:'my_exams',icon:'✏️',label:'امتحاناتي'},
+    ]});
+  }
+  if(r==='admin'){
+    items.push({section:'الإدارة',items:[
+      {id:'users',icon:'👥',label:'المستخدمون'},
+      {id:'subjects',icon:'📖',label:'المواد الدراسية'},
+    ]});
+  }
+  nav.innerHTML=items.map(s=>`
+    <div class="nav-section">
+      <div class="nav-section-title">${s.section}</div>
+      ${s.items.map(i=>`<div class="nav-item ${currentPage===i.id?'active':''}" id="nav_${i.id}" onclick="navigate('${i.id}')"><span class="ni">${i.icon}</span><span>${i.label}</span></div>`).join('')}
+    </div>
+  `).join('');
+}
+
+function navigate(page){
+  currentPage=page;
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const ni=document.getElementById('nav_'+page);
+  if(ni) ni.classList.add('active');
+  const mc=document.getElementById('mainContent');
+  mc.innerHTML='';
+  const pages={
+    dashboard:renderDashboard,
+    classes:renderClasses,
+    schedule:renderSchedule,
+    content:renderContent,
+    exams:renderExams,
+    users:renderUsers,
+    subjects:renderSubjects,
+    my_schedule:renderMySchedule,
+    my_content:renderMyContent,
+    my_exams:renderMyExams,
+  };
+  if(pages[page]) pages[page]();
+}
+
+// ===================== DASHBOARD =====================
+function renderDashboard(){
+  const r=currentUser.role;
+  const students=state.users.filter(u=>u.role==='student').length;
+  const teachers=state.users.filter(u=>u.role==='teacher').length;
+  const mc=document.getElementById('mainContent');
+  let greet=r==='admin'?`مرحباً بك يا أ. ${currentUser.name.split(' ')[1]||currentUser.name}، أنت تدير منصة البيان`:
+    r==='teacher'?`مرحباً بك يا ${currentUser.name}، هنا فصولك ومحتواك`:
+    `مرحباً بك يا ${currentUser.name}، هنا كل ما يخصك في منصة البيان`;
+
+  let statsHTML='';
+  if(r==='admin'){
+    statsHTML=`<div class="stats-grid">
+      <div class="stat-card sc-gold"><div class="sc-icon">👥</div><div class="sc-label">إجمالي الطلاب</div><div class="sc-val">${students}</div></div>
+      <div class="stat-card sc-teal"><div class="sc-icon">👩‍🏫</div><div class="sc-label">المدرسون</div><div class="sc-val">${teachers}</div></div>
+      <div class="stat-card sc-slate"><div class="sc-icon">🏫</div><div class="sc-label">الفصول</div><div class="sc-val">${state.classes.length}</div></div>
+      <div class="stat-card sc-green"><div class="sc-icon">📚</div><div class="sc-label">المحتوى المنشور</div><div class="sc-val">${state.content.length}</div></div>
+    </div>`;
+  } else if(r==='teacher'){
+    const myCls=(currentUser.classes||[]).length;
+    const mySubjs=(currentUser.subjects||[]).length;
+    statsHTML=`<div class="stats-grid">
+      <div class="stat-card sc-gold"><div class="sc-icon">🏫</div><div class="sc-label">فصولي</div><div class="sc-val">${myCls}</div></div>
+      <div class="stat-card sc-teal"><div class="sc-icon">📖</div><div class="sc-label">موادي</div><div class="sc-val">${mySubjs}</div></div>
+      <div class="stat-card sc-slate"><div class="sc-icon">📚</div><div class="sc-label">المحتوى المنشور</div><div class="sc-val">${state.content.filter(c=>c.teacherId===currentUser.id).length}</div></div>
+      <div class="stat-card sc-green"><div class="sc-icon">✏️</div><div class="sc-label">الامتحانات</div><div class="sc-val">${state.exams.filter(e=>e.teacherId===currentUser.id).length}</div></div>
+    </div>`;
+  } else {
+    const myCls=state.classes.find(c=>c.name===currentUser.grade);
+    const myContent=myCls?state.content.filter(c=>c.classId===myCls.id).length:0;
+    const myExams=myCls?state.exams.filter(e=>e.classId===myCls.id).length:0;
+    statsHTML=`<div class="stats-grid">
+      <div class="stat-card sc-gold"><div class="sc-icon">🏫</div><div class="sc-label">فصلي</div><div class="sc-val">${currentUser.grade||'—'}</div></div>
+      <div class="stat-card sc-teal"><div class="sc-icon">📚</div><div class="sc-label">المحتوى المتاح</div><div class="sc-val">${myContent}</div></div>
+      <div class="stat-card sc-slate"><div class="sc-icon">✏️</div><div class="sc-label">الامتحانات</div><div class="sc-val">${myExams}</div></div>
+      <div class="stat-card sc-green"><div class="sc-icon">📅</div><div class="sc-label">أيام الدراسة</div><div class="sc-val">5</div></div>
+    </div>`;
+  }
+
+  mc.innerHTML=`
+    <div class="page-header">
+      <div style="background:linear-gradient(135deg,#0d1b2a,#1a3a4a);border-radius:var(--radius);padding:1.5rem 2rem;color:#fff;margin-bottom:1.5rem;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-30px;left:-30px;width:150px;height:150px;background:var(--primary);opacity:0.08;border-radius:50%"></div>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:4px">لوحة التحكم</p>
+        <h1 style="font-family:'Amiri',serif;font-size:1.8rem;margin-bottom:6px;color:#fff">${greet}</h1>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.9rem">منصة البيان التعليمية المتكاملة</p>
+      </div>
+    </div>
+    ${statsHTML}
+    ${r==='admin'?renderDashboardAdmin():r==='teacher'?renderDashboardTeacher():renderDashboardStudent()}
+  `;
+}
+
+function renderDashboardAdmin(){
+  const recent=state.users.slice(-4).reverse();
+  return `<div class="table-card">
+    <div class="table-card-header"><h3>آخر المستخدمين المضافين</h3><button class="btn btn-primary btn-sm" onclick="navigate('users')">عرض الكل</button></div>
+    <table class="t-table"><thead><tr><th>الاسم</th><th>الدور</th><th>الحالة</th></tr></thead><tbody>
+    ${recent.map(u=>`<tr><td>${u.name}</td><td><span class="badge ${u.role==='admin'?'b-admin':u.role==='teacher'?'b-teacher':'b-student'}">${u.role==='admin'?'أدمن':u.role==='teacher'?'مدرس':'طالب'}</span></td><td><span class="badge ${u.active?'b-active':'b-inactive'}">${u.active?'نشط':'موقوف'}</span></td></tr>`).join('')}
+    </tbody></table></div>`;
+}
+function renderDashboardTeacher(){
+  const myCls=currentUser.classes||[];
+  return `<div class="table-card"><div class="table-card-header"><h3>فصولي</h3></div>
+  <div style="padding:1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem">
+  ${myCls.map(cn=>{const c=state.classes.find(x=>x.name===cn);return c?`<div class="class-card" onclick="navigate('content')"><div class="class-card-top" style="background:linear-gradient(135deg,var(--teal),var(--teal-dark))">${c.name}</div><div class="class-card-body"><p>${c.studentCount} طالب</p></div></div>`:'';}).join('')||'<p style="color:var(--text2)">لم يتم تعيين فصول بعد</p>'}
+  </div></div>`;
+}
+function renderDashboardStudent(){
+  const myCls=state.classes.find(c=>c.name===currentUser.grade);
+  if(!myCls) return `<div class="alert alert-info">لم يتم تسجيلك في فصل بعد. يرجى التواصل مع الإدارة.</div>`;
+  return `<div class="alert alert-info">📚 أنت مسجل في: <strong>${currentUser.grade}</strong> — يمكنك متابعة جدولك ومحتواك من القائمة الجانبية</div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap">
+  <button class="btn btn-primary" onclick="navigate('my_schedule')">📅 جدولي الدراسي</button>
+  <button class="btn btn-gold" onclick="navigate('my_content')">📚 المحتوى والمواد</button>
+  <button class="btn btn-ghost" onclick="navigate('my_exams')">✏️ امتحاناتي</button>
+  </div>`;
+}
+
+// ===================== USERS =====================
+function renderUsers(){
+  const mc=document.getElementById('mainContent');
+  mc.innerHTML=`
+    <div class="page-header"><h1>إدارة المستخدمين</h1><p>إضافة وإدارة الأدمن والمدرسين والطلاب</p></div>
+    <div class="btn-group" style="margin-bottom:1.5rem">
+      <button class="btn btn-primary" onclick="openAddUser('admin')">➕ إضافة أدمن</button>
+      <button class="btn btn-gold" onclick="openAddUser('teacher')">➕ إضافة مدرس</button>
+      <button class="btn btn-ghost" onclick="openAddUser('student')">➕ إضافة طالب</button>
+    </div>
+    <div id="usersTabs">
+      <div class="tabs">
+        <div class="tab active" onclick="filterUsers('all',this)">الكل (${state.users.length})</div>
+        <div class="tab" onclick="filterUsers('admin',this)">أدمن</div>
+        <div class="tab" onclick="filterUsers('teacher',this)">مدرسون</div>
+        <div class="tab" onclick="filterUsers('student',this)">طلاب</div>
+      </div>
+      <div class="table-card">
+        <table class="t-table" id="usersTable">
+          <thead><tr><th>الاسم</th><th>اسم المستخدم</th><th>الدور</th><th>التفاصيل</th><th>الحالة</th><th>إجراءات</th></tr></thead>
+          <tbody id="usersTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  `;
+  renderUsersTable('all');
+}
+
+function renderUsersTable(filter){
+  const users=filter==='all'?state.users:state.users.filter(u=>u.role===filter);
+  document.getElementById('usersTableBody').innerHTML=users.map(u=>`
+    <tr>
+      <td><strong>${u.name}</strong></td>
+      <td style="direction:ltr;text-align:right">${u.username}</td>
+      <td><span class="badge ${u.role==='admin'?'b-admin':u.role==='teacher'?'b-teacher':'b-student'}">${u.role==='admin'?'أدمن':u.role==='teacher'?'مدرس':'طالب'}</span></td>
+      <td>${u.role==='student'?'فصل: '+(u.grade||'—'):u.role==='teacher'?(u.subjects||[]).map(s=>SUBJECTS[SUBJECT_KEYS.indexOf(s)]||s).join('، '):'—'}</td>
+      <td><span class="badge ${u.active?'b-active':'b-inactive'}">${u.active?'نشط':'موقوف'}</span></td>
+      <td><div class="btn-group">
+        <button class="btn btn-ghost btn-sm" onclick="editUser('${u.id}')">✏️</button>
+        ${u.id!=='u1'?`<button class="btn btn-danger btn-sm" onclick="toggleUser('${u.id}')">🔒</button>`:''}
+      </div></td>
+    </tr>`).join('');
+}
+
+let _usersFilter='all';
+function filterUsers(f,el){
+  _usersFilter=f;
+  document.querySelectorAll('#usersTabs .tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderUsersTable(f);
+}
+
+function openAddUser(role){
+  const isTeacher=role==='teacher';const isStudent=role==='student';
+  const roleLabel=role==='admin'?'أدمن':role==='teacher'?'مدرس':'طالب';
+  openModal(`إضافة ${roleLabel} جديد`,`
+    <div class="fg"><label>الاسم الكامل</label><input id="nu_name" type="text" placeholder="الاسم الكامل"></div>
+    <div class="form-row">
+      <div class="fg"><label>اسم المستخدم</label><input id="nu_user" type="text" placeholder="username" style="direction:ltr"></div>
+      <div class="fg"><label>كلمة المرور</label><input id="nu_pass" type="text" placeholder="password" style="direction:ltr"></div>
+    </div>
+    ${isTeacher?`
+    <div class="fg"><label>المواد التي يدرسها (يمكن اختيار أكثر من مادة)</label>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px">
+    ${SUBJECTS.map((s,i)=>`<label style="display:flex;align-items:center;gap:6px;font-size:0.85rem;cursor:pointer"><input type="checkbox" value="${SUBJECT_KEYS[i]}" class="nu_subj"> ${s}</label>`).join('')}
+    </div></div>
+    <div class="fg"><label>الفصول المعينة</label>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px">
+    ${GRADES.map(g=>`<label style="display:flex;align-items:center;gap:6px;font-size:0.85rem;cursor:pointer"><input type="checkbox" value="${g}" class="nu_cls"> ${g}</label>`).join('')}
+    </div></div>`:''}
+    ${isStudent?`<div class="fg"><label>الفصل الدراسي</label><select id="nu_grade">
+    ${GRADES.map(g=>`<option value="${g}">${g}</option>`).join('')}
+    </select></div>`:''}
+    <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:1rem">
+      <button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="addUser('${role}')">حفظ</button>
+    </div>`);
+}
+
+function addUser(role){
+  const name=document.getElementById('nu_name').value.trim();
+  const user=document.getElementById('nu_user').value.trim();
+  const pass=document.getElementById('nu_pass').value.trim();
+  if(!name||!user||!pass){showToast('يرجى ملء جميع الحقول','error');return;}
+  if(state.users.find(u=>u.username===user)){showToast('اسم المستخدم موجود بالفعل','error');return;}
+  const newUser={id:'u'+Date.now(),username:user,password:pass,name,role,active:true};
+  if(role==='teacher'){
+    newUser.subjects=[...document.querySelectorAll('.nu_subj:checked')].map(x=>x.value);
+    newUser.classes=[...document.querySelectorAll('.nu_cls:checked')].map(x=>x.value);
+  }
+  if(role==='student') newUser.grade=document.getElementById('nu_grade').value;
+  state.users.push(newUser);
+  closeModal();
+  showToast('تم إضافة المستخدم بنجاح');
+  renderUsers();
+}
+
+function editUser(id){
+  const u=state.users.find(x=>x.id===id);if(!u)return;
+  openModal(`تعديل بيانات ${u.name}`,`
+    <div class="fg"><label>الاسم الكامل</label><input id="eu_name" type="text" value="${u.name}"></div>
+    <div class="form-row">
+      <div class="fg"><label>اسم المستخدم</label><input id="eu_user" type="text" value="${u.username}" style="direction:ltr"></div>
+      <div class="fg"><label>كلمة مرور جديدة</label><input id="eu_pass" type="text" placeholder="اتركه فارغاً للإبقاء" style="direction:ltr"></div>
+    </div>
+    ${u.role==='student'?`<div class="fg"><label>الفصل</label><select id="eu_grade">${GRADES.map(g=>`<option value="${g}" ${g===u.grade?'selected':''}>${g}</option>`).join('')}</select></div>`:''}
+    ${u.role==='teacher'?`
+    <div class="fg"><label>المواد</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px">
+    ${SUBJECTS.map((s,i)=>`<label style="display:flex;align-items:center;gap:6px;font-size:0.85rem"><input type="checkbox" value="${SUBJECT_KEYS[i]}" class="eu_subj" ${(u.subjects||[]).includes(SUBJECT_KEYS[i])?'checked':''}> ${s}</label>`).join('')}
+    </div></div>
+    <div class="fg"><label>الفصول</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px">
+    ${GRADES.map(g=>`<label style="display:flex;align-items:center;gap:6px;font-size:0.85rem"><input type="checkbox" value="${g}" class="eu_cls" ${(u.classes||[]).includes(g)?'checked':''}> ${g}</label>`).join('')}
+    </div></div>`:''}
+    <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:1rem">
+      <button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="saveEditUser('${id}')">حفظ</button>
+    </div>`);
+}
+
+function saveEditUser(id){
+  const u=state.users.find(x=>x.id===id);if(!u)return;
+  u.name=document.getElementById('eu_name').value.trim()||u.name;
+  u.username=document.getElementById('eu_user').value.trim()||u.username;
+  const newPass=document.getElementById('eu_pass').value.trim();
+  if(newPass) u.password=newPass;
+  if(u.role==='student') u.grade=document.getElementById('eu_grade').value;
+  if(u.role==='teacher'){
+    u.subjects=[...document.querySelectorAll('.eu_subj:checked')].map(x=>x.value);
+    u.classes=[...document.querySelectorAll('.eu_cls:checked')].map(x=>x.value);
+  }
+  closeModal();showToast('تم حفظ التعديلات');renderUsers();
+}
+
+function toggleUser(id){
+  const u=state.users.find(x=>x.id===id);if(!u)return;
+  u.active=!u.active;showToast(u.active?'تم تفعيل الحساب':'تم تعطيل الحساب');renderUsersTable(_usersFilter);
+}
+
+// ===================== CLASSES =====================
+function renderClasses(){
+  const mc=document.getElementById('mainContent');
+  const r=currentUser.role;
+  let classes=r==='teacher'?(currentUser.classes||[]).map(cn=>state.classes.find(c=>c.name===cn)).filter(Boolean):state.classes;
+  mc.innerHTML=`
+    <div class="page-header"><h1>الفصول الدراسية</h1><p>إدارة الفصول والمواد المرتبطة بها</p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem">
+    ${classes.map((c,i)=>{
+      const colors=['#0d1b2a','#1a3a4a','#0d6e8f','#efb710','#11abb1','#878a99'];
+      const col=colors[i%colors.length];
+      return `<div class="class-card" onclick="openClassDetail('${c.id}')">
+        <div class="class-card-top" style="background:${col}">${c.name}</div>
+        <div class="class-card-body">
+          <h4>${c.name}</h4>
+          <p>👥 ${c.studentCount} طالب</p>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:3px">
+          ${(c.subjects||[]).slice(0,4).map(s=>`<span class="tag">${SUBJECTS[SUBJECT_KEYS.indexOf(s)]||s}</span>`).join('')}
+          ${(c.subjects||[]).length>4?`<span class="tag">+${(c.subjects||[]).length-4}</span>`:''}
+          </div>
+        </div>
+      </div>`;
+    }).join('')}
+    </div>`;
+}
+
+function openClassDetail(classId){
+  const c=state.classes.find(x=>x.id===classId);if(!c)return;
+  const students=state.users.filter(u=>u.role==='student'&&u.grade===c.name);
+  openModal(`فصل: ${c.name}`,`
+    <div class="tabs" style="margin-bottom:1rem">
+      <div class="tab active" onclick="switchClassTab('students','${classId}',this)">الطلاب (${students.length})</div>
+      <div class="tab" onclick="switchClassTab('subjects','${classId}',this)">المواد</div>
+      <div class="tab" onclick="switchClassTab('content','${classId}',this)">المحتوى</div>
+    </div>
+    <div id="classDetailContent"></div>
+  `);
+  renderClassTab('students',classId);
+}
+
+function switchClassTab(tab,classId,el){
+  document.querySelectorAll('#modal .tabs .tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderClassTab(tab,classId);
+}
+
+function renderClassTab(tab,classId){
+  const c=state.classes.find(x=>x.id===classId);
+  const ct=document.getElementById('classDetailContent');
+  if(tab==='students'){
+    const students=state.users.filter(u=>u.role==='student'&&u.grade===c.name);
+    ct.innerHTML=students.length?`<table class="t-table"><thead><tr><th>الاسم</th><th>اسم المستخدم</th><th>الحالة</th></tr></thead><tbody>
+    ${students.map(u=>`<tr><td>${u.name}</td><td style="direction:ltr;text-align:right">${u.username}</td><td><span class="badge ${u.active?'b-active':'b-inactive'}">${u.active?'نشط':'موقوف'}</span></td></tr>`).join('')}
+    </tbody></table>`:`<div class="empty-state"><div class="es-icon">👥</div><p>لا يوجد طلاب في هذا الفصل بعد</p></div>`;
+  } else if(tab==='subjects'){
+    const allSubjs=SUBJECT_KEYS.map((k,i)=>({k,label:SUBJECTS[i]}));
+    ct.innerHTML=`<p style="font-size:0.85rem;color:var(--text2);margin-bottom:1rem">اختر المواد المرتبطة بهذا الفصل:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+    ${allSubjs.map(s=>`<label style="display:flex;align-items:center;gap:8px;padding:8px;border:1.5px solid ${(c.subjects||[]).includes(s.k)?'var(--teal)':'var(--border)'};border-radius:8px;cursor:pointer;font-size:0.85rem">
+    <input type="checkbox" value="${s.k}" class="class_subj" ${(c.subjects||[]).includes(s.k)?'checked':''} onchange="toggleClassSubject('${classId}','${s.k}',this.checked)"> ${s.label}</label>`).join('')}
+    </div>`;
+  } else if(tab==='content'){
+    const content=state.content.filter(x=>x.classId===classId);
+    ct.innerHTML=content.length?`<div style="display:flex;flex-direction:column;gap:0.75rem">
+    ${content.map(item=>`<div style="padding:0.75rem 1rem;border:1px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px">
+    <span style="font-size:1.2rem">${item.type==='video'?'🎬':item.type==='exam'?'✏️':'📄'}</span>
+    <div><strong style="font-size:0.9rem">${item.title}</strong><p style="font-size:0.75rem;color:var(--text2)">${item.subject?SUBJECTS[SUBJECT_KEYS.indexOf(item.subject)]||item.subject:''} • ${item.date||''}</p></div>
+    </div>`).join('')}
+    </div>`:`<div class="empty-state"><div class="es-icon">📚</div><p>لا يوجد محتوى لهذا الفصل بعد</p></div>`;
+  }
+}
+
+function toggleClassSubject(classId,subj,checked){
+  const c=state.classes.find(x=>x.id===classId);if(!c)return;
+  if(!c.subjects) c.subjects=[];
+  if(checked){if(!c.subjects.includes(subj))c.subjects.push(subj);}
+  else{c.subjects=c.subjects.filter(s=>s!==subj);}
+  showToast('تم تحديث مواد الفصل');
+}
+
+// ===================== SCHEDULE =====================
+function renderSchedule(){
+  const mc=document.getElementById('mainContent');
+  const r=currentUser.role;
+  let classes=r==='teacher'?(currentUser.classes||[]).map(cn=>state.classes.find(c=>c.name===cn)).filter(Boolean):state.classes;
+  let selectedClass=classes[0];
+
+  mc.innerHTML=`
+    <div class="page-header"><h1>الجدول الدراسي</h1><p>جدول الحصص من الأحد للخميس — 7:00 صباحاً إلى 1:00 ظهراً</p></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
+      <select id="schedClassSelect" onchange="renderScheduleTable()" style="padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;background:var(--white)">
+        ${classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}
+      </select>
+      ${currentUser.role==='admin'||currentUser.role==='teacher'?`<button class="btn btn-primary btn-sm" onclick="openAddScheduleSlot()">➕ إضافة حصة</button>`:''}
+    </div>
+    <div class="schedule-grid" id="scheduleGrid"></div>
+  `;
+  renderScheduleTable();
+}
+
+function renderScheduleTable(){
+  const classId=document.getElementById('schedClassSelect').value;
+  const sch=state.schedule[classId]||{};
+  const teachers=state.users.filter(u=>u.role==='teacher'||u.role==='admin');
+  const canEdit=currentUser.role==='admin'||currentUser.role==='teacher';
+
+  const grid=document.getElementById('scheduleGrid');
+  grid.innerHTML=`<table class="sch-table">
+    <thead><tr>
+      <th>الوقت</th>
+      ${DAYS.map(d=>`<th>${d}</th>`).join('')}
+    </tr></thead>
+    <tbody>
+    ${PERIODS.map(p=>{
+      if(p.isBreak) return `<tr><td class="sch-time" style="background:var(--primary-light);text-align:center;font-size:0.75rem;font-weight:700;color:var(--primary-dark)">${p.start}—${p.end}</td>${DAYS.map(()=>`<td><div class="sch-break">☕ استراحة</div></td>`).join('')}</tr>`;
+      return `<tr>
+        <td class="sch-time"><strong>الحصة ${p.n}</strong><br>${p.start}—${p.end}</td>
+        ${DAYS.map(d=>{
+          const slot=(sch[d]||{})[p.n];
+          if(slot){
+            const t=teachers.find(x=>x.id===slot.teacherId);
+            const si=SUBJECT_KEYS.indexOf(slot.subject);
+            return `<td><div class="sch-cell ${SUBJECT_CLASSES[slot.subject]||''}" onclick="${canEdit?`openEditSlot('${classId}','${d}',${p.n})`:''}">
+              <span class="subj">${SUBJECTS[si]||slot.subject}</span>
+              <span class="teacher">${t?t.name.split(' ').slice(-2).join(' '):'—'}</span>
+            </div></td>`;
+          }
+          return `<td><div class="sch-empty" onclick="${canEdit?`openAddSlot('${classId}','${d}',${p.n})`:''}">＋</div></td>`;
+        }).join('')}
+      </tr>`;
+    }).join('')}
+    </tbody>
+  </table>`;
+}
+
+function openAddSlot(classId,day,period){
+  openAddScheduleSlot(classId,day,period);
+}
+
+function openEditSlot(classId,day,period){
+  const slot=(state.schedule[classId]||{})[day]?.[period];
+  if(!slot)return;
+  const teachers=state.users.filter(u=>u.role==='teacher');
+  const si=SUBJECT_KEYS.indexOf(slot.subject);
+  openModal(`تعديل حصة — ${day} الحصة ${period}`,`
+    <div class="fg"><label>المادة</label><select id="ss_subj">
+    ${SUBJECTS.map((s,i)=>`<option value="${SUBJECT_KEYS[i]}" ${slot.subject===SUBJECT_KEYS[i]?'selected':''}>${s}</option>`).join('')}
+    </select></div>
+    <div class="fg"><label>المدرس</label><select id="ss_teacher">
+    <option value="">— اختر مدرساً —</option>
+    ${teachers.map(t=>`<option value="${t.id}" ${slot.teacherId===t.id?'selected':''}>${t.name}</option>`).join('')}
+    </select></div>
+    <div style="display:flex;gap:0.75rem;justify-content:space-between;margin-top:1rem">
+      <button class="btn btn-danger btn-sm" onclick="deleteSlot('${classId}','${day}',${period})">🗑️ حذف الحصة</button>
+      <div style="display:flex;gap:0.5rem"><button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="saveSlot('${classId}','${day}',${period})">حفظ</button></div>
+    </div>`);
+}
+
+function openAddScheduleSlot(classId,day,period){
+  const classes=state.classes;
+  const teachers=state.users.filter(u=>u.role==='teacher');
+  openModal('إضافة حصة جديدة',`
+    ${!classId?`<div class="fg"><label>الفصل</label><select id="ss_class">${classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select></div>`:''}
+    ${!day?`<div class="fg"><label>اليوم</label><select id="ss_day">${DAYS.map(d=>`<option>${d}</option>`).join('')}</select></div>`:''}
+    ${!period?`<div class="fg"><label>الحصة</label><select id="ss_period">${PERIODS.filter(p=>!p.isBreak).map(p=>`<option value="${p.n}">الحصة ${p.n} (${p.start}—${p.end})</option>`).join('')}</select></div>`:''}
+    <div class="fg"><label>المادة</label><select id="ss_subj">${SUBJECTS.map((s,i)=>`<option value="${SUBJECT_KEYS[i]}">${s}</option>`).join('')}</select></div>
+    <div class="fg"><label>المدرس</label><select id="ss_teacher">
+    <option value="">— اختر مدرساً —</option>
+    ${teachers.map(t=>`<option value="${t.id}">${t.name}</option>`).join('')}
+    </select></div>
+    <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:1rem">
+      <button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="addSlot('${classId||''}','${day||''}',${period||0})">إضافة</button>
+    </div>`);
+}
+
+function addSlot(classId,day,period){
+  const cls=classId||document.getElementById('ss_class')?.value;
+  const d=day||document.getElementById('ss_day')?.value;
+  const p=period||parseInt(document.getElementById('ss_period')?.value);
+  const subj=document.getElementById('ss_subj').value;
+  const teacher=document.getElementById('ss_teacher').value;
+  if(!cls||!d||!p){showToast('يرجى ملء جميع الحقول','error');return;}
+  // Check teacher conflict
+  if(teacher){
+    for(const cid of Object.keys(state.schedule)){
+      if(cid===cls) continue;
+      const slot=(state.schedule[cid]?.[d]||{})[p];
+      if(slot&&slot.teacherId===teacher){
+        showToast('⚠️ المدرس لديه حصة في نفس الوقت في فصل آخر!','error');return;
+      }
+    }
+  }
+  if(!state.schedule[cls]) state.schedule[cls]={};
+  if(!state.schedule[cls][d]) state.schedule[cls][d]={};
+  state.schedule[cls][d][p]={subject:subj,teacherId:teacher||null};
+  closeModal();showToast('تمت إضافة الحصة');renderScheduleTable();
+}
+
+function saveSlot(classId,day,period){
+  const subj=document.getElementById('ss_subj').value;
+  const teacher=document.getElementById('ss_teacher').value;
+  if(teacher){
+    for(const cid of Object.keys(state.schedule)){
+      if(cid===classId) continue;
+      const slot=(state.schedule[cid]?.[day]||{})[period];
+      if(slot&&slot.teacherId===teacher){
+        showToast('⚠️ المدرس لديه حصة في نفس الوقت في فصل آخر!','error');return;
+      }
+    }
+  }
+  state.schedule[classId][day][period]={subject:subj,teacherId:teacher||null};
+  closeModal();showToast('تم تحديث الحصة');renderScheduleTable();
+}
+
+function deleteSlot(classId,day,period){
+  if(state.schedule[classId]?.[day]) delete state.schedule[classId][day][period];
+  closeModal();showToast('تم حذف الحصة');renderScheduleTable();
+}
+
+// ===================== CONTENT =====================
+function renderContent(){
+  const mc=document.getElementById('mainContent');
+  const r=currentUser.role;
+  let classes=r==='teacher'?(currentUser.classes||[]).map(cn=>state.classes.find(c=>c.name===cn)).filter(Boolean):state.classes;
+  let selectedClassId=classes[0]?.id;
+  let selectedSubject=r==='teacher'?(currentUser.subjects||[])[0]:null;
+
+  mc.innerHTML=`
+    <div class="page-header"><h1>المحتوى التعليمي</h1><p>إضافة وإدارة المواد التعليمية والواجبات</p></div>
+    <div style="display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;align-items:center">
+      <select id="cont_class" onchange="renderContentList()" style="padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;background:var(--white)">
+        ${classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}
+      </select>
+      <select id="cont_subj" onchange="renderContentList()" style="padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;background:var(--white)">
+        <option value="">كل المواد</option>
+        ${(r==='teacher'?currentUser.subjects||[]:SUBJECT_KEYS).map(k=>`<option value="${k}">${SUBJECTS[SUBJECT_KEYS.indexOf(k)]||k}</option>`).join('')}
+      </select>
+      <button class="btn btn-primary" onclick="openAddContent()">➕ إضافة محتوى</button>
+    </div>
+    <div id="contentList"></div>
+  `;
+  renderContentList();
+}
+
+function renderContentList(){
+  const classId=document.getElementById('cont_class').value;
+  const subj=document.getElementById('cont_subj').value;
+  let items=state.content.filter(c=>c.classId===classId);
+  if(subj) items=items.filter(c=>c.subject===subj);
+  if(currentUser.role==='teacher') items=items.filter(c=>c.teacherId===currentUser.id||!c.teacherId);
+
+  const icons={pdf:'📄',video:'🎬',word:'📝',exam:'✏️',homework:'📋',other:'📁'};
+  const bg={pdf:'cc-icon-pdf',video:'cc-icon-video',word:'cc-icon-doc',exam:'cc-icon-exam',homework:'cc-icon-exam',other:'cc-icon-doc'};
+
+  document.getElementById('contentList').innerHTML=items.length?`
+    <div class="content-grid">
+    ${items.map(item=>`<div class="content-card">
+      <div class="cc-header">
+        <div class="cc-icon ${bg[item.type]||'cc-icon-doc'}">${icons[item.type]||'📁'}</div>
+        <div><div class="cc-title">${item.title}</div><div class="cc-meta">${item.subject?SUBJECTS[SUBJECT_KEYS.indexOf(item.subject)]||item.subject:''} • ${item.date||''}</div></div>
+      </div>
+      ${item.desc?`<div style="padding:0 1rem 0.5rem;font-size:0.8rem;color:var(--text2)">${item.desc}</div>`:''}
+      <div class="cc-footer">
+        <span class="badge b-active">متاح</span>
+        <div class="btn-group">
+          <button class="btn btn-ghost btn-sm" onclick="editContent('${item.id}')">✏️</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteContent('${item.id}')">🗑️</button>
+        </div>
+      </div>
+    </div>`).join('')}
+    </div>`:`<div class="empty-state"><div class="es-icon">📚</div><p>لا يوجد محتوى بعد — ابدأ بإضافة أول محتوى تعليمي</p></div>`;
+}
+
+function openAddContent(){
+  const r=currentUser.role;
+  const classes=r==='teacher'?(currentUser.classes||[]).map(cn=>state.classes.find(c=>c.name===cn)).filter(Boolean):state.classes;
+  const subjList=r==='teacher'?currentUser.subjects||[]:SUBJECT_KEYS;
+  openModal('إضافة محتوى تعليمي',`
+    <div class="fg"><label>عنوان المحتوى</label><input id="nc_title" type="text" placeholder="مثل: شرح درس الجمع"></div>
+    <div class="form-row">
+      <div class="fg"><label>الفصل</label><select id="nc_class">
+        <option value="all">كل الفصول</option>
+        ${classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}
+      </select></div>
+      <div class="fg"><label>المادة</label><select id="nc_subj">
+        ${subjList.map(k=>`<option value="${k}">${SUBJECTS[SUBJECT_KEYS.indexOf(k)]||k}</option>`).join('')}
+      </select></div>
+    </div>
+    <div class="form-row">
+      <div class="fg"><label>نوع المحتوى</label><select id="nc_type">
+        <option value="pdf">📄 ملف PDF</option>
+        <option value="video">🎬 فيديو</option>
+        <option value="word">📝 ملف Word</option>
+        <option value="homework">📋 واجب</option>
+        <option value="other">📁 أخرى</option>
+      </select></div>
+      <div class="fg"><label>التاريخ</label><input id="nc_date" type="date" value="${new Date().toISOString().split('T')[0]}"></div>
+    </div>
+    <div class="fg"><label>وصف المحتوى (اختياري)</label><textarea id="nc_desc" placeholder="وصف مختصر..."></textarea></div>
+    <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:1rem">
+      <button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="addContent()">نشر المحتوى</button>
+    </div>`);
+}
+
+function addContent(){
+  const title=document.getElementById('nc_title').value.trim();
+  const classVal=document.getElementById('nc_class').value;
+  const subj=document.getElementById('nc_subj').value;
+  const type=document.getElementById('nc_type').value;
+  const date=document.getElementById('nc_date').value;
+  const desc=document.getElementById('nc_desc').value.trim();
+  if(!title){showToast('يرجى إدخال عنوان المحتوى','error');return;}
+  const r=currentUser.role;
+  const classes=classVal==='all'?(r==='teacher'?(currentUser.classes||[]).map(cn=>state.classes.find(c=>c.name===cn)).filter(Boolean):state.classes):state.classes.filter(c=>c.id===classVal);
+  classes.forEach(c=>{
+    state.content.push({id:'ct'+Date.now()+Math.random(),type,title,classId:c.id,subject:subj,teacherId:currentUser.id,date,desc});
+  });
+  closeModal();showToast(`تم نشر المحتوى في ${classes.length} فصل`);renderContentList();
+}
+
+function deleteContent(id){
+  state.content=state.content.filter(c=>c.id!==id);showToast('تم حذف المحتوى');renderContentList();
+}
+
+function editContent(id){
+  const item=state.content.find(c=>c.id===id);if(!item)return;
+  openModal('تعديل المحتوى',`
+    <div class="fg"><label>العنوان</label><input id="ec_title" type="text" value="${item.title}"></div>
+    <div class="fg"><label>الوصف</label><textarea id="ec_desc">${item.desc||''}</textarea></div>
+    <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:1rem">
+      <button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="saveContent('${id}')">حفظ</button>
+    </div>`);
+}
+function saveContent(id){
+  const item=state.content.find(c=>c.id===id);if(!item)return;
+  item.title=document.getElementById('ec_title').value.trim()||item.title;
+  item.desc=document.getElementById('ec_desc').value.trim();
+  closeModal();showToast('تم تحديث المحتوى');renderContentList();
+}
+
+// ===================== EXAMS =====================
+function renderExams(){
+  const mc=document.getElementById('mainContent');
+  const r=currentUser.role;
+  let classes=r==='teacher'?(currentUser.classes||[]).map(cn=>state.classes.find(c=>c.name===cn)).filter(Boolean):state.classes;
+
+  mc.innerHTML=`
+    <div class="page-header"><h1>الامتحانات الإلكترونية</h1><p>إنشاء وإدارة الامتحانات مع ضبط الوقت</p></div>
+    <div style="display:flex;gap:1rem;margin-bottom:1.5rem;align-items:center;flex-wrap:wrap">
+      <select id="exam_class" onchange="renderExamsList()" style="padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;background:var(--white)">
+        ${classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}
+      </select>
+      <button class="btn btn-primary" onclick="openAddExam()">➕ إنشاء امتحان جديد</button>
+    </div>
+    <div id="examsList"></div>
+  `;
+  renderExamsList();
+}
+
+function renderExamsList(){
+  const classId=document.getElementById('exam_class').value;
+  const exams=state.exams.filter(e=>e.classId===classId);
+  const now=new Date();
+  document.getElementById('examsList').innerHTML=exams.length?exams.map(e=>{
+    const start=new Date(e.startTime);
+    const end=new Date(start.getTime()+e.duration*60000);
+    const isActive=now>=start&&now<=end;
+    const isUpcoming=now<start;
+    return `<div class="exam-card ${isActive?'active-exam':!isUpcoming?'expired-exam':''}">
+      <div class="exam-header">
+        <div>
+          <h3 style="font-size:1.05rem;font-weight:700;color:var(--text)">${e.title}</h3>
+          <span class="badge ${isActive?'b-active':isUpcoming?'b-teacher':'b-inactive'}">${isActive?'🟢 جارٍ الآن':isUpcoming?'🔵 قادم':'⚫ انتهى'}</span>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-ghost btn-sm" onclick="editExam('${e.id}')">✏️</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteExam('${e.id}')">🗑️</button>
+        </div>
+      </div>
+      <div class="exam-info">
+        <span class="exam-info-item">📖 ${SUBJECTS[SUBJECT_KEYS.indexOf(e.subject)]||e.subject}</span>
+        <span class="exam-info-item">⏱️ ${e.duration} دقيقة</span>
+        <span class="exam-info-item">📅 ${start.toLocaleDateString('ar-EG')} — ${start.toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'})}</span>
+        <span class="exam-info-item">❓ ${e.questions?.length||0} سؤال</span>
+        <span class="exam-info-item">🔁 ${e.attempts===1?'محاولة واحدة':'محاولات متعددة'}</span>
+      </div>
+    </div>`;
+  }).join(''):`<div class="empty-state"><div class="es-icon">✏️</div><p>لا توجد امتحانات لهذا الفصل — أنشئ أول امتحان</p></div>`;
+}
+
+function openAddExam(){
+  const r=currentUser.role;
+  const classes=r==='teacher'?(currentUser.classes||[]).map(cn=>state.classes.find(c=>c.name===cn)).filter(Boolean):state.classes;
+  const subjList=r==='teacher'?currentUser.subjects||[]:SUBJECT_KEYS;
+  const now=new Date();
+  const dt=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,16);
+  openModal('إنشاء امتحان جديد',`
+    <div class="fg"><label>عنوان الامتحان</label><input id="ne_title" type="text" placeholder="مثل: امتحان نصف الترم"></div>
+    <div class="form-row">
+      <div class="fg"><label>الفصل</label><select id="ne_class">${classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
+      <div class="fg"><label>المادة</label><select id="ne_subj">${subjList.map(k=>`<option value="${k}">${SUBJECTS[SUBJECT_KEYS.indexOf(k)]||k}</option>`).join('')}</select></div>
+    </div>
+    <div class="form-row">
+      <div class="fg"><label>تاريخ ووقت البدء</label><input id="ne_start" type="datetime-local" value="${dt}" style="direction:ltr"></div>
+      <div class="fg"><label>المدة (دقيقة)</label><input id="ne_dur" type="number" value="45" min="5" max="180"></div>
+    </div>
+    <div class="fg"><label>عدد المحاولات المسموحة</label><select id="ne_attempts">
+      <option value="1">محاولة واحدة فقط</option>
+      <option value="2">محاولتان</option>
+      <option value="0">غير محدود</option>
+    </select></div>
+    <hr class="section-divider">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem">
+      <strong style="font-size:0.9rem">الأسئلة</strong>
+      <button class="btn btn-ghost btn-sm" onclick="addExamQuestion()">➕ إضافة سؤال</button>
+    </div>
+    <div id="exam_questions"></div>
+    <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:1rem">
+      <button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="saveExam()">نشر الامتحان</button>
+    </div>`);
+}
+
+let _examQs=[];
+function addExamQuestion(){
+  _examQs.push({id:Date.now(),text:'',type:'mcq',options:['','','',''],answer:0});
+  renderExamQsForm();
+}
+function renderExamQsForm(){
+  const cont=document.getElementById('exam_questions');
+  if(!cont)return;
+  cont.innerHTML=_examQs.map((q,i)=>`
+    <div style="border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;margin-bottom:0.75rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
+        <strong style="font-size:0.85rem">السؤال ${i+1}</strong>
+        <button class="btn btn-danger btn-sm" onclick="_examQs.splice(${i},1);renderExamQsForm()">🗑️</button>
+      </div>
+      <input style="width:100%;padding:0.5rem;border:1px solid var(--border);border-radius:6px;font-family:'Cairo',sans-serif;font-size:0.85rem;margin-bottom:0.5rem" placeholder="نص السؤال" value="${q.text}" oninput="_examQs[${i}].text=this.value">
+      ${q.type==='mcq'?q.options.map((op,oi)=>`<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <input type="radio" name="q${i}_ans" ${q.answer===oi?'checked':''} onchange="_examQs[${i}].answer=${oi}">
+        <input style="flex:1;padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-family:'Cairo',sans-serif;font-size:0.82rem" placeholder="الخيار ${oi+1}" value="${op}" oninput="_examQs[${i}].options[${oi}]=this.value">
+      </div>`).join(''):''}
+    </div>`).join('')||'<p style="color:var(--text2);font-size:0.85rem;text-align:center">لا توجد أسئلة — اضغط "إضافة سؤال"</p>';
+}
+
+function saveExam(){
+  const title=document.getElementById('ne_title').value.trim();
+  const classId=document.getElementById('ne_class').value;
+  const subj=document.getElementById('ne_subj').value;
+  const start=document.getElementById('ne_start').value;
+  const dur=parseInt(document.getElementById('ne_dur').value)||45;
+  const attempts=parseInt(document.getElementById('ne_attempts').value)||1;
+  if(!title||!start){showToast('يرجى ملء الحقول المطلوبة','error');return;}
+  state.exams.push({id:'ex'+Date.now(),title,classId,subject:subj,teacherId:currentUser.id,startTime:start,duration:dur,attempts,questions:[..._examQs]});
+  _examQs=[];
+  closeModal();showToast('تم نشر الامتحان');renderExamsList();
+}
+
+function editExam(id){
+  const e=state.exams.find(x=>x.id===id);if(!e)return;
+  openModal('تعديل الامتحان',`
+    <div class="fg"><label>عنوان الامتحان</label><input id="ee_title" type="text" value="${e.title}"></div>
+    <div class="form-row">
+      <div class="fg"><label>المدة (دقيقة)</label><input id="ee_dur" type="number" value="${e.duration}"></div>
+      <div class="fg"><label>وقت البدء</label><input id="ee_start" type="datetime-local" value="${e.startTime}" style="direction:ltr"></div>
+    </div>
+    <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:1rem">
+      <button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="updateExam('${id}')">حفظ</button>
+    </div>`);
+}
+function updateExam(id){
+  const e=state.exams.find(x=>x.id===id);if(!e)return;
+  e.title=document.getElementById('ee_title').value.trim()||e.title;
+  e.duration=parseInt(document.getElementById('ee_dur').value)||e.duration;
+  e.startTime=document.getElementById('ee_start').value||e.startTime;
+  closeModal();showToast('تم تحديث الامتحان');renderExamsList();
+}
+function deleteExam(id){
+  state.exams=state.exams.filter(e=>e.id!==id);showToast('تم حذف الامتحان');renderExamsList();
+}
+
+// ===================== SUBJECTS =====================
+function renderSubjects(){
+  const mc=document.getElementById('mainContent');
+  mc.innerHTML=`
+    <div class="page-header"><h1>المواد الدراسية</h1><p>إدارة قائمة المواد وربطها بالمدرسين</p></div>
+    <div class="table-card">
+      <div class="table-card-header"><h3>المواد الدراسية</h3></div>
+      <table class="t-table"><thead><tr><th>المادة</th><th>المدرسون</th><th>الفصول المرتبطة</th></tr></thead>
+      <tbody>
+      ${SUBJECT_KEYS.map((k,i)=>{
+        const teachers=state.users.filter(u=>u.role==='teacher'&&(u.subjects||[]).includes(k));
+        const classes=state.classes.filter(c=>(c.subjects||[]).includes(k));
+        return `<tr>
+          <td><strong>${SUBJECTS[i]}</strong></td>
+          <td>${teachers.map(t=>`<span class="tag">${t.name}</span>`).join('')||'<span style="color:var(--text2);font-size:0.8rem">—</span>'}</td>
+          <td>${classes.length} فصل</td>
+        </tr>`;
+      }).join('')}
+      </tbody></table>
+    </div>`;
+}
+
+// ===================== STUDENT PAGES =====================
+function renderMySchedule(){
+  const mc=document.getElementById('mainContent');
+  const myCls=state.classes.find(c=>c.name===currentUser.grade);
+  if(!myCls){mc.innerHTML=`<div class="alert alert-error">لم يتم تسجيلك في فصل بعد</div>`;return;}
+  const sch=state.schedule[myCls.id]||{};
+  const teachers=state.users.filter(u=>u.role==='teacher'||u.role==='admin');
+  mc.innerHTML=`
+    <div class="page-header"><h1>جدولي الدراسي</h1><p>فصل: ${currentUser.grade} — من الأحد للخميس</p></div>
+    <div class="schedule-grid">
+      <table class="sch-table">
+        <thead><tr><th>الوقت</th>${DAYS.map(d=>`<th>${d}</th>`).join('')}</tr></thead>
+        <tbody>
+        ${PERIODS.map(p=>{
+          if(p.isBreak) return `<tr><td class="sch-time" style="background:var(--primary-light);text-align:center;font-size:0.75rem;font-weight:700;color:var(--primary-dark)">${p.start}—${p.end}</td>${DAYS.map(()=>`<td><div class="sch-break">☕ استراحة</div></td>`).join('')}</tr>`;
+          return `<tr>
+            <td class="sch-time"><strong>الحصة ${p.n}</strong><br>${p.start}—${p.end}</td>
+            ${DAYS.map(d=>{
+              const slot=(sch[d]||{})[p.n];
+              if(slot){
+                const t=teachers.find(x=>x.id===slot.teacherId);
+                return `<td><div class="sch-cell ${SUBJECT_CLASSES[slot.subject]||''}">
+                  <span class="subj">${SUBJECTS[SUBJECT_KEYS.indexOf(slot.subject)]||slot.subject}</span>
+                  <span class="teacher">${t?t.name.split(' ').slice(-2).join(' '):'—'}</span>
+                </div></td>`;
+              }
+              return `<td><div style="min-height:56px;display:flex;align-items:center;justify-content:center;color:var(--border);font-size:0.7rem">—</div></td>`;
+            }).join('')}
+          </tr>`;
+        }).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+function renderMyContent(){
+  const mc=document.getElementById('mainContent');
+  const myCls=state.classes.find(c=>c.name===currentUser.grade);
+  if(!myCls){mc.innerHTML=`<div class="alert alert-error">لم يتم تسجيلك في فصل بعد</div>`;return;}
+  const items=state.content.filter(c=>c.classId===myCls.id);
+  mc.innerHTML=`
+    <div class="page-header"><h1>المحتوى والمواد</h1><p>فصل: ${currentUser.grade}</p></div>
+    ${items.length?`<div class="content-grid">${items.map(item=>{
+      const icons={pdf:'📄',video:'🎬',word:'📝',exam:'✏️',homework:'📋',other:'📁'};
+      const bg={pdf:'cc-icon-pdf',video:'cc-icon-video',word:'cc-icon-doc',exam:'cc-icon-exam',homework:'cc-icon-exam',other:'cc-icon-doc'};
+      return `<div class="content-card">
+        <div class="cc-header">
+          <div class="cc-icon ${bg[item.type]||'cc-icon-doc'}">${icons[item.type]||'📁'}</div>
+          <div><div class="cc-title">${item.title}</div><div class="cc-meta">${item.subject?SUBJECTS[SUBJECT_KEYS.indexOf(item.subject)]||item.subject:''} • ${item.date||''}</div></div>
+        </div>
+        ${item.desc?`<div style="padding:0 1rem 0.5rem;font-size:0.8rem;color:var(--text2)">${item.desc}</div>`:''}
+        <div class="cc-footer"><span class="badge b-active">متاح</span></div>
+      </div>`;
+    }).join('')}</div>`:`<div class="empty-state"><div class="es-icon">📚</div><p>لا يوجد محتوى منشور لفصلك بعد</p></div>`}`;
+}
+
+function renderMyExams(){
+  const mc=document.getElementById('mainContent');
+  const myCls=state.classes.find(c=>c.name===currentUser.grade);
+  if(!myCls){mc.innerHTML=`<div class="alert alert-error">لم يتم تسجيلك في فصل بعد</div>`;return;}
+  const exams=state.exams.filter(e=>e.classId===myCls.id);
+  const now=new Date();
+  mc.innerHTML=`
+    <div class="page-header"><h1>امتحاناتي</h1><p>فصل: ${currentUser.grade}</p></div>
+    ${exams.length?exams.map(e=>{
+      const start=new Date(e.startTime);const end=new Date(start.getTime()+e.duration*60000);
+      const isActive=now>=start&&now<=end;const isUpcoming=now<start;
+      return `<div class="exam-card ${isActive?'active-exam':!isUpcoming?'expired-exam':''}">
+        <div class="exam-header">
+          <div><h3 style="font-size:1rem;font-weight:700">${e.title}</h3>
+          <span class="badge ${isActive?'b-active':isUpcoming?'b-teacher':'b-inactive'}">${isActive?'🟢 جارٍ الآن':isUpcoming?'🔵 قادم':'⚫ انتهى'}</span></div>
+          ${isActive?`<button class="btn btn-primary btn-sm" onclick="startExam('${e.id}')">دخول الامتحان ←</button>`:''}
+        </div>
+        <div class="exam-info">
+          <span class="exam-info-item">⏱️ ${e.duration} دقيقة</span>
+          <span class="exam-info-item">📅 ${start.toLocaleDateString('ar-EG')}</span>
+          <span class="exam-info-item">❓ ${e.questions?.length||0} سؤال</span>
+        </div>
+      </div>`;
+    }).join(''):`<div class="empty-state"><div class="es-icon">✏️</div><p>لا توجد امتحانات حالياً</p></div>`}`;
+}
+
+function startExam(examId){
+  const e=state.exams.find(x=>x.id===examId);if(!e)return;
+  if(!e.questions?.length){showToast('هذا الامتحان لا يحتوي على أسئلة بعد','error');return;}
+  const dur=e.duration;
+  let timeLeft=dur*60;let answers={};
+  const qHTML=e.questions.map((q,i)=>`
+    <div style="margin-bottom:1.5rem;padding:1rem;border:1px solid var(--border);border-radius:var(--radius-sm)">
+      <p style="font-weight:600;margin-bottom:0.75rem">${i+1}. ${q.text||'سؤال رقم '+(i+1)}</p>
+      ${q.type==='mcq'?q.options.map((op,oi)=>`<label style="display:flex;align-items:center;gap:8px;padding:6px;border-radius:6px;cursor:pointer;font-size:0.875rem"><input type="radio" name="ans_${i}" value="${oi}" onchange="answers[${i}]=${oi}"> ${op||'الخيار '+(oi+1)}</label>`).join(''):''}
+    </div>`).join('');
+  openModal('🟢 جارٍ الآن — '+e.title,`
+    <div style="display:flex;align-items:center;justify-content:space-between;background:var(--teal-light);padding:0.75rem 1rem;border-radius:var(--radius-sm);margin-bottom:1.5rem">
+      <strong>⏱️ الوقت المتبقي: <span id="exam_timer" style="color:var(--teal-dark);font-size:1.1rem">${Math.floor(dur/60).toString().padStart(2,'0')}:${(dur%60).toString().padStart(2,'0')}</span></strong>
+      <span style="font-size:0.85rem;color:var(--teal-dark)">${e.questions.length} سؤال</span>
+    </div>
+    ${qHTML}
+    <button class="btn btn-primary" style="width:100%;margin-top:1rem" onclick="submitExam()">تسليم الامتحان</button>
+  `);
+  const timer=setInterval(()=>{
+    timeLeft--;const m=Math.floor(timeLeft/60).toString().padStart(2,'0');const s=(timeLeft%60).toString().padStart(2,'0');
+    const el=document.getElementById('exam_timer');if(el){el.textContent=`${m}:${s}`;if(timeLeft<=60)el.style.color='#e74c3c';}
+    if(timeLeft<=0){clearInterval(timer);submitExam();}
+  },1000);
+  window._examTimer=timer;
+}
+
+function submitExam(){
+  if(window._examTimer){clearInterval(window._examTimer);window._examTimer=null;}
+  closeModal();showToast('✅ تم تسليم الامتحان بنجاح');
+}
+
+// ===================== MODAL & UTILS =====================
+function openModal(title,body){
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalBody').innerHTML=body;
+  document.getElementById('modalOverlay').classList.remove('hidden');
+  _examQs=[];
+}
+function closeModal(e){
+  if(e&&e.target!==document.getElementById('modalOverlay'))return;
+  document.getElementById('modalOverlay').classList.add('hidden');
+  if(window._examTimer){clearInterval(window._examTimer);window._examTimer=null;}
+}
+function showToast(msg,type){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.background=type==='error'?'#e74c3c':'#1a1d2e';
+  t.classList.remove('hidden');
+  setTimeout(()=>t.classList.add('hidden'),3000);
+}
+</script>
+</body>
+</html>
